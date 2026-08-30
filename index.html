@@ -3,181 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DeFi Danny — Proof of Work</title>
-  <meta name="description" content="DeFi Danny (@defiufo). Web3 KOL who installs the product, writes the guide, and ships the repo. Proof of work for AgentOS, Technocore, and onchain content." />
+  <title>DeFi Danny — @defiufo</title>
+  <meta name="description" content="DeFi Danny makes crypto content people actually finish. X threads, character videos, product demos, community voice." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg: #07080a;
-      --card: #12161c;
-      --line: rgba(255,255,255,.08);
-      --text: #e8ece8;
-      --muted: #8b948c;
-      --lime: #c8f542;
-      --mint: #7dffc3;
-      --warn: #ffb86b;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: "IBM Plex Mono", ui-monospace, monospace; line-height: 1.55; }
-    body::before {
-      content: ""; position: fixed; inset: 0;
-      background:
-        radial-gradient(900px 500px at 10% -10%, rgba(200,245,66,.08), transparent 50%),
-        radial-gradient(700px 400px at 100% 0%, rgba(125,255,195,.06), transparent 45%);
-      pointer-events: none; z-index: 0;
-    }
-    .wrap { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 22px; }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0 10px; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-    .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
-    .brand strong { font-family: Syne, sans-serif; font-weight: 700; letter-spacing: -.03em; }
-    .brand span { color: var(--muted); font-size: 12px; display: block; }
-    .nav-links { display: flex; gap: 18px; align-items: center; font-size: 12px; }
-    .nav-links a { color: var(--muted); text-decoration: none; }
-    .nav-links a:hover { color: var(--lime); }
-    .btn { display: inline-flex; align-items: center; background: var(--lime); color: #111; text-decoration: none; font-weight: 600; font-size: 13px; padding: 10px 14px; border-radius: 999px; }
-    .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
-    .hero { padding: 54px 0 28px; }
-    .kicker { color: var(--lime); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 18px; }
-    h1 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(42px, 8vw, 88px); line-height: .92; letter-spacing: -.03em; max-width: 16ch; }
-    h1 em { font-style: italic; color: var(--mint); }
-    .lede { max-width: 62ch; color: var(--muted); margin: 22px 0 28px; font-size: 14px; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 42px 0 8px; }
-    .stat { border: 1px solid var(--line); background: rgba(18,22,28,.7); padding: 16px 14px; border-radius: 14px; }
-    .stat b { display: block; font-family: Syne, sans-serif; font-size: 22px; letter-spacing: -.04em; }
-    .stat span { color: var(--muted); font-size: 11px; }
-    section { padding: 56px 0 8px; }
-    h2 { font-family: Syne, sans-serif; font-size: 28px; letter-spacing: -.04em; margin-bottom: 8px; }
-    .sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; max-width: 68ch; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
-    .card.wide { grid-column: 1 / -1; }
-    .tag { display: inline-block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #111; background: var(--lime); padding: 4px 8px; border-radius: 999px; margin-bottom: 12px; }
-    .tag.mint { background: var(--mint); }
-    .tag.warn { background: var(--warn); }
-    .card h3 { font-family: Syne, sans-serif; font-size: 18px; letter-spacing: -.03em; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 13px; }
-    .meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
-    .pill { font-size: 11px; color: var(--muted); border: 1px solid var(--line); padding: 4px 8px; border-radius: 999px; }
-    .card a.more { color: var(--lime); font-size: 12px; text-decoration: none; display: inline-block; margin-top: 14px; }
-    .quotes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-    blockquote { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; margin: 0; }
-    blockquote p { font-family: "Instrument Serif", serif; font-size: 22px; line-height: 1.2; }
-    blockquote footer { margin-top: 16px; color: var(--muted); font-size: 12px; }
-    blockquote footer a { color: var(--mint); text-decoration: none; }
-    .hire { margin: 40px 0 80px; padding: 28px; border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(200,245,66,.07), transparent 50%), var(--card); }
-    .hire h2 { max-width: 18ch; }
-    footer.site { padding: 20px 0 40px; color: var(--muted); font-size: 11px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    @media (max-width: 860px) {
-      .stats, .grid, .quotes { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+    :root { --ink:#1a1612; --paper:#f4efe6; --cream:#fbf7f0; --muted:#6d6458; --line:#d8cbb8; --accent:#c45c26; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--paper); color:var(--ink); font-family:Outfit,system-ui,sans-serif; line-height:1.6; }
+    a { color:inherit; }
+    .bar { display:flex; justify-content:space-between; align-items:center; padding:18px 6vw; border-bottom:1px solid var(--line); position:sticky; top:0; background:rgba(244,239,230,.92); backdrop-filter:blur(10px); z-index:10; }
+    .logo { font-family:"Cormorant Garamond",serif; font-size:22px; text-decoration:none; }
+    .bar nav { display:flex; gap:22px; font-size:14px; }
+    .bar nav a { text-decoration:none; color:var(--muted); }
+    .hire-btn { background:var(--ink); color:var(--cream); text-decoration:none; padding:10px 16px; border-radius:999px; font-size:14px; }
+    .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; padding:64px 6vw 40px; align-items:center; }
+    .hero img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:8px; }
+    .eyebrow { letter-spacing:.18em; text-transform:uppercase; font-size:12px; color:var(--accent); margin-bottom:16px; }
+    h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(48px,7vw,92px); line-height:.92; font-weight:500; }
+    .hero p { margin-top:22px; max-width:42ch; color:#3b342c; font-size:18px; }
+    .row { display:flex; gap:12px; margin-top:28px; flex-wrap:wrap; }
+    .ghost { border:1px solid var(--ink); text-decoration:none; padding:10px 16px; border-radius:999px; font-size:14px; }
+    .strip { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .strip div { padding:22px 6vw 22px 24px; }
+    .strip b { display:block; font-family:"Cormorant Garamond",serif; font-size:32px; font-weight:500; }
+    .strip span { color:var(--muted); font-size:13px; }
+    section { padding:72px 6vw; }
+    h2 { font-family:"Cormorant Garamond",serif; font-size:clamp(36px,5vw,56px); font-weight:500; line-height:1; margin-bottom:12px; }
+    .lead { max-width:62ch; color:var(--muted); margin-bottom:36px; font-size:17px; }
+    .services { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .svc { background:var(--cream); border:1px solid var(--line); padding:28px; border-radius:6px; }
+    .svc h3 { font-family:"Cormorant Garamond",serif; font-size:28px; font-weight:500; margin-bottom:8px; }
+    .svc p { color:#4a433a; }
+    .how { background:var(--ink); color:var(--cream); }
+    .how .lead { color:#c9bfb2; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .steps h3 { font-family:"Cormorant Garamond",serif; font-size:28px; font-weight:500; margin:8px 0; }
+    .num { color:#e08a4f; letter-spacing:.12em; font-size:12px; }
+    .quotes { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    blockquote { margin:0; border-top:1px solid var(--line); padding-top:20px; }
+    blockquote p { font-family:"Cormorant Garamond",serif; font-size:28px; line-height:1.2; }
+    blockquote footer { margin-top:12px; color:var(--muted); font-size:13px; }
+    .proof a { color:var(--accent); }
+    footer.site { padding:28px 6vw 48px; display:flex; justify-content:space-between; color:var(--muted); border-top:1px solid var(--line); font-size:13px; }
+    @media (max-width:860px) {
+      .hero,.services,.steps,.quotes,.strip { grid-template-columns:1fr; }
+      .bar nav { display:none; }
+      .strip div { padding:18px 6vw; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="bar">
+    <a class="logo" href="#top">DeFi Danny</a>
     <nav>
-      <a class="brand" href="#top">
-        <img src="https://pbs.twimg.com/profile_images/2088747979821699073/lpgMp9ht.jpg" alt="DeFi Danny" />
-        <div><strong>DeFi Danny</strong><span>@defiufo</span></div>
-      </a>
-      <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#community">Community</a>
-        <a href="#hire">Hire</a>
-        <a href="https://x.com/defiufo" target="_blank" rel="noreferrer">X</a>
-      </div>
-      <a class="btn" href="https://x.com/defiufo" target="_blank" rel="noreferrer">DM on X</a>
+      <a href="#do">What I do</a>
+      <a href="#how">How I work</a>
+      <a href="#voice">Community</a>
+      <a href="https://x.com/defiufo" target="_blank" rel="noreferrer">X</a>
     </nav>
-    <header class="hero" id="top">
-      <p class="kicker">Proof of work · not a media kit</p>
-      <h1>Straight to the point. <em>Then I ship it.</em></h1>
-      <p class="lede">Web3 KOL and operator. I install the product, break the setup, write the guide, post what actually happened, and leave a repo when the work is reusable. Recent focus: AgentOS, local agents, and honest onchain content.</p>
-      <div class="cta-row">
-        <a class="btn" href="https://x.com/defiufo" target="_blank" rel="noreferrer">Hire via @defiufo</a>
-        <a class="btn ghost" href="https://github.com/DefiDanny2" target="_blank" rel="noreferrer">GitHub repos</a>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>10.7k</b><span>X followers · Premium</span></div>
-        <div class="stat"><b>2021</b><span>On X since May 15</span></div>
-        <div class="stat"><b>$35</b><span>AgentOS weekly contributor payout</span></div>
-        <div class="stat"><b>3</b><span>Public Technocore repos</span></div>
-      </div>
-    </header>
-    <section id="work">
-      <h2>Work they can click</h2>
-      <p class="sub">Live posts, paid contributor board, and public repos. No invented campaigns.</p>
-      <div class="grid">
-        <article class="card wide">
-          <span class="tag">AgentOS</span>
-          <h3>Windows + Ollama install guide</h3>
-          <p>Tested the full local setup myself: AgentOS, Ollama, local model, gateway, Web UI. Packed the commands into a PDF and a short walkthrough video so people could follow without a paid API key. Then answered setup questions in-thread (PowerShell admin vs normal user, Ubuntu path).</p>
-          <div class="meta"><span class="pill">876 views</span><span class="pill">26 likes</span><span class="pill">20 replies</span><span class="pill">25 Aug 2026</span></div>
-          <a class="more" href="https://x.com/defiufo/status/2092199648857330021" target="_blank" rel="noreferrer">Open the post →</a>
-        </article>
-        <article class="card">
-          <span class="tag mint">Paid work</span>
-          <h3>AgentOS contributor board</h3>
-          <p>Ranked #3 on the weekly AgentOS contributor list. Founder @AndreaPN sent $35 in $AGENTOS to wallet 0x4318…6eE1 on 23 Aug 2026. Official @useAgentOS account replies on the timeline.</p>
-          <div class="meta"><span class="pill">Weekly payout</span><span class="pill">Founder tagged</span></div>
-          <a class="more" href="https://x.com/AndreaPN/status/2091474465637200337" target="_blank" rel="noreferrer">Payout post →</a>
-        </article>
-        <article class="card">
-          <span class="tag">Ops</span>
-          <h3>Upgrade writeup that actually unblocked people</h3>
-          <p>AgentOS 2026.8.28 failed on Windows: leftover gateway locked uv Scripts, command vanished. Posted the exact fix — kill the process, new PowerShell, force reinstall with Python 3.12 — plus the gotchas (unclosed quote, no --version flag, config stays in .agentos).</p>
-          <a class="more" href="https://x.com/defiufo/status/2093615866524905951" target="_blank" rel="noreferrer">Read the fix →</a>
-        </article>
-        <article class="card">
-          <span class="tag">Product voice</span>
-          <h3>Trader-first AgentOS threads</h3>
-          <p>Not feature dumps. Explained the actual job: research, holders, liquidity, portfolio, simulate, execute — one runtime. Community replies landed on the same point: the all-in-one flow is the product.</p>
-          <div class="meta"><span class="pill">647 views</span><span class="pill">19 replies</span></div>
-          <a class="more" href="https://x.com/defiufo/status/2093247431676764207" target="_blank" rel="noreferrer">Thread →</a>
-        </article>
-        <article class="card">
-          <span class="tag warn">Build</span>
-          <h3>Technocore agent health tracker</h3>
-          <p>Read-only scanner. No keys. No farm spam. Groups signed did:key agents from public rooms and scores them alive / silent / farm-like / one-shot.</p>
-          <a class="more" href="https://github.com/DefiDanny2/technocore-agent-health" target="_blank" rel="noreferrer">github.com/DefiDanny2/technocore-agent-health →</a>
-        </article>
-        <article class="card">
-          <span class="tag warn">Build</span>
-          <h3>Technocore field notes + signed helper agent</h3>
-          <p>Operator notes on useful work vs farm noise, plus a signed room helper that answers health/tool questions and skips check-in spam.</p>
-          <a class="more" href="https://github.com/DefiDanny2/technocore-danny-agent" target="_blank" rel="noreferrer">technocore-danny-agent →</a>
-        </article>
-      </div>
-    </section>
-    <section id="community">
-      <h2>What the timeline said back</h2>
-      <p class="sub">Unedited replies under live posts. Not testimonials I asked for.</p>
-      <div class="quotes">
-        <blockquote><p>“Yeah it looking like a tool traders would need massively.”</p><footer>@Tinyangrimam_24 · on the AgentOS trader thread</footer></blockquote>
-        <blockquote><p>“The all in one flow is the real win.”</p><footer>@olacryptojide · same thread</footer></blockquote>
-        <blockquote><p>“The AI label matters less to me too.”</p><footer>@0xfobby · same thread</footer></blockquote>
-        <blockquote><p>“open power shell as admin or as a normal user also can we use ubuntu ?”</p><footer>@OxNipsey · people used the install guide</footer></blockquote>
-        <blockquote><p>“💯🫡”</p><footer><a href="https://x.com/useAgentOS">@useAgentOS</a> · official account on my posts</footer></blockquote>
-        <blockquote><p>“Received king 🫡”</p><footer>My reply after founder paid the weekly contributor board</footer></blockquote>
-      </div>
-    </section>
-    <section id="hire" class="hire">
-      <p class="kicker">Available</p>
-      <h2>Need someone who uses the product before they post?</h2>
-      <p class="sub">Best fit: early crypto / agent products that want install guides, screen recordings, consistent-character clips, and X copy that does not read like a press release. Lagos-based. Straight DMs.</p>
-      <div class="cta-row">
-        <a class="btn" href="https://x.com/defiufo" target="_blank" rel="noreferrer">Message @defiufo</a>
-        <a class="btn ghost" href="https://useagentos.dev" target="_blank" rel="noreferrer">AgentOS site</a>
-      </div>
-    </section>
-    <footer class="site">
-      <span>© 2026 DeFi Danny · @defiufo</span>
-      <span>Built from public X + GitHub receipts.</span>
-    </footer>
+    <a class="hire-btn" href="https://x.com/defiufo" target="_blank" rel="noreferrer">Hire me</a>
   </div>
+  <header class="hero" id="top">
+    <div>
+      <p class="eyebrow">Web3 creator · Lagos · @defiufo</p>
+      <h1>I make crypto feel like a person said it.</h1>
+      <p>Not a media kit. Not a feature dump. I write, film, and talk like someone who actually used the product — because I did. Brands hire me when they want X content, character videos, and community posts that do not sound hired.</p>
+      <div class="row">
+        <a class="hire-btn" href="https://x.com/defiufo" target="_blank" rel="noreferrer">DM @defiufo</a>
+        <a class="ghost" href="#do">See the work</a>
+      </div>
+    </div>
+    <img src="https://pbs.twimg.com/profile_images/2088747979821699073/lpgMp9ht.jpg" alt="DeFi Danny" />
+  </header>
+  <div class="strip">
+    <div><b>10.7k</b><span>people on X</span></div>
+    <div><b>2021</b><span>in the timeline</span></div>
+    <div><b>Premium</b><span>verified account</span></div>
+    <div><b>Straight</b><span>to the point</span></div>
+  </div>
+  <section id="do">
+    <h2>What I actually do</h2>
+    <p class="lead">I am a KOL and content creator. The job is attention with a voice. Projects come to me for posts, clips, and community energy — not for a changelog.</p>
+    <div class="services">
+      <article class="svc"><h3>X that sounds lived-in</h3><p>Threads, replies, and short takes. If it feels forced, people notice immediately. I write like a trader talking to other traders, not like a landing page.</p></article>
+      <article class="svc"><h3>Character videos</h3><p>Consistent-character AI spots and stories for brands. Same face, same world, different scene. Promo clips, cards, set pieces — so the campaign looks like a person, not a template.</p></article>
+      <article class="svc"><h3>I use it on camera</h3><p>Install. Break. Fix. Film. Then I write the guide. Projects get proof that a real user went through the product, not a thread copied from docs.</p></article>
+      <article class="svc"><h3>Community heat</h3><p>Handle drops, comment waves, Discord rooms. Old Nibiru threads pulled 300+ replies. Same muscle, cleaner taste now.</p></article>
+    </div>
+  </section>
+  <section class="how" id="how">
+    <h2>How a brief works</h2>
+    <p class="lead">You send the product. I do not invent a personality for it. I find the part a user would actually care about, then I post that.</p>
+    <div class="steps">
+      <div><span class="num">01</span><h3>Touch the thing</h3><p>Wallet, app, CLI, Discord. If I cannot use it, I will not pretend I did.</p></div>
+      <div><span class="num">02</span><h3>Make the asset</h3><p>A clip, a thread, a still of the character, a walkthrough. One clear sentence. No slogan salad.</p></div>
+      <div><span class="num">03</span><h3>Stay in the replies</h3><p>Questions get answers. That is how a post turns into a room instead of an ad.</p></div>
+    </div>
+  </section>
+  <section id="voice">
+    <h2>What people say in the replies</h2>
+    <p class="lead">Not a testimonial page. These sat under live posts.</p>
+    <div class="quotes">
+      <blockquote><p>“Yeah it looking like a tool traders would need massively.”</p><footer>@Tinyangrimam_24</footer></blockquote>
+      <blockquote><p>“The all in one flow is the real win.”</p><footer>@olacryptojide</footer></blockquote>
+      <blockquote><p>“The AI label matters less to me too.”</p><footer>@0xfobby</footer></blockquote>
+      <blockquote><p>“open power shell as admin or as a normal user also can we use ubuntu ?”</p><footer>@OxNipsey — they were following the guide</footer></blockquote>
+    </div>
+  </section>
+  <section class="proof">
+    <h2>Recent receipts</h2>
+    <p class="lead">This is not the whole job. It is just what is easy to click right now.</p>
+    <p>
+      <a href="https://x.com/defiufo/status/2092199648857330021">AgentOS Windows guide</a> ·
+      <a href="https://x.com/AndreaPN/status/2091474465637200337">Paid contributor board</a> ·
+      <a href="https://github.com/DefiDanny2">Public repos</a> ·
+      <a href="https://x.com/defiufo">The timeline</a>
+    </p>
+    <div class="row" style="margin-top:36px">
+      <a class="hire-btn" href="https://x.com/defiufo" target="_blank" rel="noreferrer">Work with me</a>
+    </div>
+  </section>
+  <footer class="site">
+    <span>DeFi Danny · @defiufo</span>
+    <span>Lagos</span>
+  </footer>
 </body>
 </html>
